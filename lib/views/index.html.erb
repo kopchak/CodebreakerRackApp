@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codebreaker</title>
+    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css">
+  </head>
+  <body>
+    <div id="container">
+      <h4>Attempt: <%= display_attempt_quantity %></h4>
+      <h4>Hint quantity: <%= display_hint_quantity %></h4>
+      <h4>Show hint: <%= display_hint %></h4>
+      <h4>Secret code: <%= get_secret_code_to_arr %></h4>
+      <h4>Player input: <%= get_player_input %></h4>
+      <h4>Comparison values: <%= display_compare_of_value %></h4>
+      <h4><%= player_name %> please enter four digits between 1 to 6, format: 'xxxx' or click 'Get hint'</h4>
+      <form class="player_input" method="post" action="/get_player_input">
+        <input name="player_code" type="text">
+        <input type="submit" value="Play">
+      </form >
+      <form method="post" action="/get_hint">
+        <input name="get_hint" type="submit" value="Get hint">
+      </form>
+    </div>
+    <% you_lose %>
+  </body>
+</html>

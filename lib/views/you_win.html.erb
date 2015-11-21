@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>You win!</title>
+  </head>
+  <body>
+    <div id="container">
+      <h4><%= player_name %> you win!</h4>
+      <form method="post" action="/index">
+        <input name="play_again" type="submit" value="this dont work - 'YES'" disabled="true">
+      </form>
+      <form method="post" action="/">
+        <input name="play_again" type="submit" value="this dont work - 'NO'">
+      </form>
+    </div>
+  </body>
+</html>
