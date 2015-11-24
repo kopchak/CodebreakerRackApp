@@ -1,0 +1,19 @@
+GIT
+  remote: git://github.com/kopchak/Codebreaker.git
+  revision: 5b812e562459d25defee1d30a2da8863b219f93f
+  specs:
+    codebreaker (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    byebug (8.2.0)
+    rack (1.6.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  byebug
+  codebreaker!
+  rack

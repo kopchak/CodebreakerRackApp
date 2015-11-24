@@ -7,9 +7,10 @@
   <body>
     <div id="container">
       <h1>Welcome to the game Codebreaker</h1>
-      <p>Please enter your name: </p>
-      <form method="post" action="/set_name">
-        <input name="player_name" type="text">
+      <p>Please enter your name and attempts quantity: </p>
+      <form method="post" action="/start_game">
+        <input name="player_name" type="text" placeholder="Your name..." autofocus>
+        <input name="attempts_quantity" type="text" placeholder="Attempts quantity...">
         <input type="submit" value="OK">
       </form>
     </div>

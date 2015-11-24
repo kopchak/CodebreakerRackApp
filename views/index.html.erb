@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codebreaker</title>
+    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css">
+  </head>
+  <body>
+    <div id="container">
+      <h4>Attempt: <%= display_attempts_quantity %></h4>
+      <h4>Player input: <%= display_player_code %></h4>
+      <h4>Hint: <%= display_hint %></h4>
+      <h4>Result: <%= display_result %></h4>
+      <h4><%= display_name %> please enter four digits between 1 to 6, format: 'xxxx' or click 'Get hint'</h4>
+      <form class="player_input" method="post" action="/game">
+        <input name="player_code" type="text" autofocus>
+        <input type="submit" value="Play">
+      </form >
+      <form method="post" action="/hint">
+        <input name="get_hint" type="submit" value="Get hint">
+      </form>
+    </div>
+  </body>
+</html>
