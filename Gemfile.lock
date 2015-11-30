@@ -1,14 +1,28 @@
 GIT
   remote: git://github.com/kopchak/Codebreaker.git
-  revision: 5b812e562459d25defee1d30a2da8863b219f93f
+  revision: 0239d4f4e9d8c5ec27eafd069316b2647e86dfce
   specs:
-    codebreaker (0.0.1)
+    codebreaker (1.0.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    byebug (8.2.0)
+    byebug (8.2.1)
+    diff-lcs (1.2.5)
     rack (1.6.4)
+    rspec (3.3.0)
+      rspec-core (~> 3.3.0)
+      rspec-expectations (~> 3.3.0)
+      rspec-mocks (~> 3.3.0)
+    rspec-core (3.3.2)
+      rspec-support (~> 3.3.0)
+    rspec-expectations (3.3.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-mocks (3.3.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-support (3.3.0)
 
 PLATFORMS
   ruby
@@ -17,3 +31,4 @@ DEPENDENCIES
   byebug
   codebreaker!
   rack
+  rspec

@@ -2,11 +2,11 @@
 <html>
   <head>
     <title>You lose</title>
-    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/lose.css" type="text/css">
   </head>
   <body>
-    <div id="container">
-      <h4><%= display_name %> you lose</h4>
+    <div id="lose">
+      <h4><%= display_name %> you lose, secret code: <%= @session_info[0][:secret_arr].join %></h4>
       <form method="post" action="/">
         <input name="play_again" type="submit" value="Play again">
       </form>

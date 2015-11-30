@@ -1,5 +1,5 @@
 body {
-  background-color: #4B7399;
+  background-color: #77DA88;
   font-family: Verdana;
   font-size: 14px;
 }
@@ -14,7 +14,20 @@ body {
 .player_input {
   float: left;
   margin-right: 4px;
+  margin-left: 130px;
 }
-/*a {
-  color: #0000FF;
-}*/
+
+.result {
+  margin: 0 0 0 0;
+  float: left;
+  font-size: 20px;
+  height: 20px
+}
+
+.input {
+  margin: 0px 0 0 45px;
+  font-size: 19px;
+}
+
+.hint {
+  margin-bottom: 10px;

@@ -1,0 +1,21 @@
+body {
+  background-color: #77DA88;
+}
+
+#win {
+  width: 30%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 30px 40px;
+  border: solid 1px black;
+  margin-top: 145px;
+}
+
+#hall_of_fame {
+  width: 30%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 30px 40px;
+  border: solid 1px black;
+  margin-top: 145px;
+}

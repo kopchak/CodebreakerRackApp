@@ -2,14 +2,19 @@
 <html>
   <head>
     <title>You win!</title>
-    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/win.css" type="text/css">
   </head>
   <body>
-    <div id="container">
+    <div id="win">
       <h4><%= display_name %> you win!</h4>
       <form method="post" action="/">
         <input name="play_again" type="submit" value="Play again">
       </form>
+    </div>
+    <div id="hall_of_fame">
+      <% @hall_of_fame.each_index do |i| %>
+        <p><%= @hall_of_fame[i] %></p>
+      <% end %>
     </div>
   </body>
 </html>
