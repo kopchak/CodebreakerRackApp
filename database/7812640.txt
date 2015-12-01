@@ -1,0 +1,10 @@
+---
+- :player_name: den
+  :attempts_quantity: 12
+  :hint: "***5"
+  :count: 0
+  :secret_arr:
+  - 1
+  - 5
+  - 6
+  - 5
