@@ -3,6 +3,7 @@ body {
   font-family: Verdana;
   font-size: 14px;
 }
+
 #container {
   width: 30%;
   margin: 0 auto;
@@ -11,6 +12,7 @@ body {
   border: solid 1px black;
   margin-top: 20px;
 }
+
 .player_input {
   float: left;
   margin-right: 4px;
@@ -31,3 +33,8 @@ body {
 
 .hint {
   margin-bottom: 10px;
+}
+
+.start_new_game {
+  float: right;
+}

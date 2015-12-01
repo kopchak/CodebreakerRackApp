@@ -2,6 +2,18 @@ body {
   background-color: #77DA88;
 }
 
+h3 {
+  margin: 6px 0 19px 220px;
+}
+
+input {
+  margin: 0 0 0 231px;
+}
+
+p {
+  margin: 5px 0 0 57px;
+}
+
 #win {
   width: 30%;
   margin: 0 auto;
@@ -17,5 +29,5 @@ body {
   background-color: #FFF;
   padding: 30px 40px;
   border: solid 1px black;
-  margin-top: 145px;
+  margin-top: 50px;
 }

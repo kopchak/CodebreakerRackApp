@@ -2,12 +2,12 @@ require_relative 'spec_helper'
 
 describe Racker do
 
-
+  TEST_ENV = 'env'
 
   context '#self' do
     it 'self call to :new, :response and finish' do
       expect(Racker).to receive_message_chain(:new, :response, :finish)
-      Racker.call('env')
+      Racker.call(TEST_ENV)
     end
   end
 
@@ -15,11 +15,14 @@ describe Racker do
   end
 
   context '#response' do
-    before { @request = Rack::Request.new('env') }
+    before { 
+      @request = Rack::Request.new('env') 
+    #   @test_obj = Racker.new(TEST_ENV)
+    }
 
     it 'bla' do
       @request.stub(:path).and_return('/')
-      expect(Racker.response).to receive(:welcome).with(no_args())
+      expect(@request).to receive(:welcome).with(no_args())
     end
   end
 
