@@ -1,7 +1,6 @@
 require 'erb'
 require 'yaml'
 require 'rack'
-require 'bundler/setup'
 require 'codebreaker'
 
 class Racker

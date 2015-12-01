@@ -1,5 +1,10 @@
 require '../lib/codebreaker'
-require 'codebreaker'
+require 'rack/test'
+
+ENV['RACK_ENV'] = 'test'
+TEST_ENV = {
+  "rack.input"=> StringIO.new
+}
 
 RSpec.configure do |config|
   config.color = true

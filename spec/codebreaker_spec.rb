@@ -1,32 +1,34 @@
 require_relative 'spec_helper'
 
 describe Racker do
-
-  TEST_ENV = 'env'
+  include Rack::Test::Methods
+  let(:racker) { Racker.new(TEST_ENV) }
 
   context '#self' do
-    it 'self call to :new, :response and finish' do
+    it 'call to :new, :response and finish' do
       expect(Racker).to receive_message_chain(:new, :response, :finish)
-      Racker.call(TEST_ENV)
+      Racker.call('env')
     end
   end
 
   context '#new' do
   end
 
-  context '#response' do
-    before { 
-      @request = Rack::Request.new('env') 
-    #   @test_obj = Racker.new(TEST_ENV)
-    }
+  # context '#response' do
 
-    it 'bla' do
-      @request.stub(:path).and_return('/')
-      expect(@request).to receive(:welcome).with(no_args())
-    end
-  end
+  #   it 'bla' do
+  #     request = double('request', path: '/bla')
+  #     allow(Rack::Request).to receive(:new).and_return(@request)
+  #     expect(Racker).to receive(:welcome)
+  #     Racker.call('env')
+  #     # Racker.response
+  #   end
+  # end
 
   context '#render' do
+    it 'bla' do
+      expect(racker.render('welcome.html.erb')).to eq 1
+    end
   end
 
   context '#start_game' do
