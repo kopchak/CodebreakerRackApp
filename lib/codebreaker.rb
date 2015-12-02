@@ -57,7 +57,7 @@ class Racker
   def attempt
     answer = game_session.guess(params_player_code)
     @request.session[:result][params_player_code] = answer
-    p @request.session
+    # p @request.session
     if game_session.victory?
       save_to_hall_of_fame
       Rack::Response.new { |response| response.redirect("/you_win") }
