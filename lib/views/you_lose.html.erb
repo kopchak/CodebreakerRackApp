@@ -6,8 +6,11 @@
   </head>
   <body>
     <div id="lose">
-      <h3><%= display_name %> you lose, secret code: <%= @session_info[0][:secret_arr].join %></h3>
+      <h3><%=  %> you lose, secret code: <%=  %></h3>
       <form method="post" action="/">
+        <input name="play_again" type="submit" value="New game">
+      </form>
+      <form method="post" action="/start_game">
         <input name="play_again" type="submit" value="Play again">
       </form>
     </div>

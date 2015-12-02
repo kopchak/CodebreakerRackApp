@@ -6,15 +6,23 @@
   </head>
   <body>
     <div id="win">
-      <h3><%= display_name %> you win!</h3>
+      <h3><%= cookie_player_name %> you win!</h3>
       <form method="post" action="/">
+        <input name="play_again" type="submit" value="New game">
+      </form>
+      <form method="post" action="/start_game">
         <input name="play_again" type="submit" value="Play again">
       </form>
     </div>
     <div id="hall_of_fame">
       <h3>Hall of fame</h3>
-      <% @hall_of_fame.each_index do |i| %>
-        <p><%= @hall_of_fame[i] %></p>
+      <p class="name">Name:</p>
+      <p class="attempt">Attempt spent:</p>
+      <p class="secret">Secret code:</p>
+      <% @hall_of_fame.each do |hash| %>
+        <% hash.each do |key,value| %>
+          <p class="line"><%= value %></p>
+        <% end %>
       <% end %>
     </div>
   </body>

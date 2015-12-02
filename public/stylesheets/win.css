@@ -7,11 +7,11 @@ h3 {
 }
 
 input {
-  margin: 0 0 0 231px;
+  margin: 0 0 0 127px;
 }
 
-p {
-  margin: 5px 0 0 57px;
+form {
+  float: left;
 }
 
 #win {
@@ -21,6 +21,7 @@ p {
   padding: 30px 40px;
   border: solid 1px black;
   margin-top: 145px;
+  display: table;
 }
 
 #hall_of_fame {
@@ -30,4 +31,28 @@ p {
   padding: 30px 40px;
   border: solid 1px black;
   margin-top: 50px;
+  display: table;
+}
+
+.line {
+  margin: 5px 0 0px 120px;
+  float: left;
+}
+
+.name {
+  float: left;
+  margin: 0 0 10px 110px;
+  border-bottom: black 1px solid;
+}
+
+.attempt {
+  float: left;
+  margin: 0 0 12px 61px;
+  border-bottom: black 1px solid;
+}
+
+.secret {
+  margin: 0 0 12px 60px;
+  border-bottom: black 1px solid;
+  float: left;
 }

@@ -5,13 +5,14 @@
     <link rel="stylesheet" href="/stylesheets/game.css" type="text/css">
   </head>
   <body>
-    <div id="container">
+    <div id="game">
       <form class="start_new_game" method="post" action="/">
         <input type="submit" value="Start new game">
       </form>
-      <h2>Attempt: <%= @session_info[0][:attempts_quantity] %></h4>
+      <h2>Attempt: <%= game_session.attempts_quantity %></h4>
+      <h2>Hint quantity: <%= game_session.hint_quantity %></h4>
       <h2>Hint: <%= display_hint %></h4>
-      <h3><%= display_name %> please enter four digits between 1 to 6, format: 'xxxx' or click 'Get hint'</h4>
+      <h3><%= cookie_player_name %> please enter four digits between 1 to 6, format: 'xxxx' or click 'Get hint'</h4>
       <form class="player_input" method="post" action="/attempt">
         <input name="player_code" type="text" pattern="[1-6]{4}" autofocus>
         <input type="submit" value="Play">
@@ -19,9 +20,9 @@
       <form class="hint" method="post" action="/hint">
         <input name="get_hint" type="submit" value="Get hint">
       </form>
-      <% @session_info.each do |i| %>
-        <h4 class="result"><%= i[0] %></h4>
-        <h4 class="input"><%= i[1] %></h4>
+      <% @request.session[:result].each do |key,value| %>
+        <h3 class="result"><%= value %></h3>
+        <h3 class="input"><%= key %></h3>
       <% end %>
     </div>
   </body>

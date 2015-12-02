@@ -9,7 +9,7 @@
       <h1>Welcome to the game Codebreaker</h1>
       <p>Please enter your name and attempts quantity: </p>
       <form class="start_game" method="post" action="/start_game">
-        <input class="player_name" name="player_name" type="text" placeholder="Your name..." pattern="[A-Za-z]{3,}" autofocus>
+        <input class="player_name" name="player_name" type="text" placeholder="Your name..." pattern="[A-Za-z]{3,15}" autofocus>
         <input class="attempts_quantity" name="attempts_quantity" type="text" pattern="[0-9]{1,}">
         <input type="submit" value="OK">
       </form>
