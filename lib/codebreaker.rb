@@ -57,6 +57,7 @@ class Racker
   def attempt
     answer = game_session.guess(params_player_code)
     @request.session[:result][params_player_code] = answer
+    p @request.session
     if game_session.victory?
       save_to_hall_of_fame
       Rack::Response.new { |response| response.redirect("/you_win") }
@@ -91,7 +92,7 @@ class Racker
   def save_to_hall_of_fame
     winner = {
       name: cookie_player_name,
-      attempts_count: game_session.count + 1,
+      attempts_count: game_session.count,
       secret_code: game_session.player_arr.join
     }
     File.open("./database/hall_of_fame.txt", 'a') { |file|  file.write(YAML.dump(winner)) }

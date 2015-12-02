@@ -20,9 +20,9 @@
       <p class="attempt">Attempt spent:</p>
       <p class="secret">Secret code:</p>
       <% @hall_of_fame.each do |hash| %>
-        <% hash.each do |key,value| %>
-          <p class="line"><%= value %></p>
-        <% end %>
+        <p class="player_name"><%= hash[:name] %></p>
+        <p class="attempts_count"><%= hash[:attempts_count] %></p>
+        <p class="secret_code"><%= hash[:secret_code] %></p>
       <% end %>
     </div>
   </body>

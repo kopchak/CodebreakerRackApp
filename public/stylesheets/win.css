@@ -52,7 +52,22 @@ form {
 }
 
 .secret {
-  margin: 0 0 12px 60px;
+  margin: 0 96px 12px 60px;
   border-bottom: black 1px solid;
   float: left;
+}
+
+.player_name {
+  float: left;
+  margin: 0 0 5px 115px;
+}
+
+.attempts_count {
+  float: left;
+  margin: 0 0 5px 126px;
+}
+
+.secret_code {
+  float: left;
+  margin: 0 0 5px 124px;
 }
