@@ -10,8 +10,6 @@ GEM
     byebug (8.2.1)
     diff-lcs (1.2.5)
     rack (1.6.4)
-    rack-test (0.6.3)
-      rack (>= 1.0)
     rake (10.4.2)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
@@ -34,6 +32,5 @@ DEPENDENCIES
   byebug
   codebreaker!
   rack
-  rack-test
   rake
   rspec

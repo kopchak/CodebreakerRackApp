@@ -11,10 +11,10 @@
       </form>
       <h2>Attempt: <%= game_session.attempts_quantity %></h4>
       <h2>Hint quantity: <%= game_session.hint_quantity %></h4>
-      <h2>Hint: <%= display_hint %></h4>
+      <h2>Hint: <%= cookie_hint %></h4>
       <h3><%= cookie_player_name %> please enter four digits between 1 to 6, format: 'xxxx' or click 'Get hint'</h4>
       <form class="player_input" method="post" action="/attempt">
-        <input name="player_code" type="text" pattern="[1-6]{4}" autofocus>
+        <input name="player_code" type="text" pattern="[1-6]{4}" autofocus required>
         <input type="submit" value="Play">
       </form >
       <form class="hint" method="post" action="/hint">

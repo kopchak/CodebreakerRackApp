@@ -47,11 +47,7 @@ class Racker
   end
 
   def game
-    if cookie_player_name.empty? && cookie_attempts_quantity.empty?
-      Rack::Response.new { |response| response.redirect("/") }
-    else
-      Rack::Response.new(render("game.html.erb"))
-    end
+    Rack::Response.new(render("game.html.erb"))
   end
 
   def attempt
@@ -118,8 +114,12 @@ class Racker
     @request.cookies["attempts_quantity"]
   end
 
-  def display_hint
-    @request.cookies["hint"] || ""
+  def cookie_hint
+    if @request.cookies["hint"] == 'false'
+      ""
+    else
+      @request.cookies["hint"]
+    end
   end
 
   def game_session

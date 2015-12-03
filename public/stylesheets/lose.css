@@ -6,8 +6,12 @@ h3 {
   margin: 0px 0 20px 137px;
 }
 
+form {
+  float: left;
+}
+
 input {
-  margin: 0 0 0 210px;
+  margin: 0 0 0 118px;
 }
 
 #lose {
@@ -17,4 +21,5 @@ input {
   padding: 30px 40px;
   border: solid 1px black;
   margin-top: 145px;
+  display: table;
 }
