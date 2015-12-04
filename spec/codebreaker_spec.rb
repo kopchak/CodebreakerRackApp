@@ -3,17 +3,65 @@ require_relative 'spec_helper'
 describe Racker do
   let(:racker) { Racker.new(TEST_ENV) }
 
-  # context '#self' do
-  # end
+  context '#self' do
+    it 'run :new, :response, :finish' do
+      expect(Racker).to receive_message_chain(:new, :response, :finish)
+      Racker.call(TEST_ENV)
+    end
+  end
 
-  # context '#new' do
-  # end
+  context '#new' do
+    it '@request exist and be kind of Rack::Request' do
+      request = racker.instance_variable_get(:@request)
+      expect(request).to be_kind_of(Rack::Request)
+    end
+  end
 
-  # context '#response' do
-  # end
+  context '#response' do
+    before { @request = racker.instance_variable_get(:@request) }
+    after { racker.response }
 
-  # context '#render' do
-  # end
+    it 'when @request.path "/" run :welcome' do
+      allow(@request).to receive(:path).and_return("/")
+      expect(racker).to receive(:welcome)
+    end
+
+    it 'when @request.path "start_game" run :start_game' do
+      allow(@request).to receive(:path).and_return("/start_game")
+      expect(racker).to receive(:start_game)
+    end
+
+    it 'when @request.path "/game" run :game' do
+      allow(@request).to receive(:path).and_return("/game")
+      expect(racker).to receive(:game)
+    end
+
+    it 'when @request.path "/attempt" run :attempt' do
+      allow(@request).to receive(:path).and_return("/attempt")
+      expect(racker).to receive(:attempt)
+    end
+
+    it 'when @request.path "/hint" run :hint' do
+      allow(@request).to receive(:path).and_return("/hint")
+      expect(racker).to receive(:hint)
+    end
+
+    it 'when @request.path "/you_win" run :you_win' do
+      allow(@request).to receive(:path).and_return("/you_win")
+      expect(racker).to receive(:you_win)
+    end
+
+    it 'when @request.path "/you_lose" run :you_lose' do
+      allow(@request).to receive(:path).and_return("/you_lose")
+      expect(racker).to receive(:you_lose)
+    end
+  end
+
+  context '#render' do
+    it 'template "welcome.html.erb" contain "Welcome"' do
+      expect(racker.render("welcome.html.erb")).to include("Welcome")
+    end
+  end
 
   context '#start_game' do
     before do
@@ -139,8 +187,15 @@ describe Racker do
   end
 
   context '#you_win' do
+    before { allow(racker).to receive(:render).and_return("you_win.html.erb") }
+
+    it 'YAML run :load_documents' do
+      allow(File).to receive(:open).and_return("hall_of_fame.txt")
+      expect(YAML).to receive(:load_documents).with("hall_of_fame.txt")
+      racker.you_win
+    end
+
     it 'render "you_win.html.erb"' do
-      allow(racker).to receive(:render).and_return("you_win.html.erb")
       expect(Rack::Response).to receive(:new).with(racker.render("you_win.html.erb"))
       racker.you_win
     end
@@ -169,7 +224,7 @@ describe Racker do
   context '#params_player_code' do
     it 'return "1111" from @request.params["player_code"]' do
       request = racker.instance_variable_get(:@request)
-      allow(request).to receive(:params).and_return("player_code"=>"1111")
+      allow(request).to receive(:params).and_return({"player_code"=>"1111"})
       expect(racker.params_player_code).to eq "1111"
     end
   end
@@ -177,7 +232,7 @@ describe Racker do
   context '#params_player_name' do
     it 'return "ebony" from @request.params["player_name"]' do
       request = racker.instance_variable_get(:@request)
-      allow(request).to receive(:params).and_return("player_name"=>"ebony")
+      allow(request).to receive(:params).and_return({"player_name"=>"ebony"})
       expect(racker.params_player_name).to eq "ebony"
     end
   end
@@ -185,7 +240,7 @@ describe Racker do
   context '#params_attempts_quantity' do
     it 'return "10" from @request.params["attempts_quantity"]' do
       request = racker.instance_variable_get(:@request)
-      allow(request).to receive(:params).and_return("attempts_quantity"=>"10")
+      allow(request).to receive(:params).and_return({"attempts_quantity"=>"10"})
       expect(racker.params_attempts_quantity).to eq "10"
     end
   end
@@ -193,7 +248,7 @@ describe Racker do
   context '#cookie_player_name' do
     it 'return "ebony" from @request.cookie["player_name"]' do
       request = racker.instance_variable_get(:@request)
-      allow(request).to receive(:cookies).and_return("player_name"=>"ebony")
+      allow(request).to receive(:cookies).and_return({"player_name"=>"ebony"})
       expect(racker.cookie_player_name).to eq "ebony"
     end
   end
@@ -201,7 +256,7 @@ describe Racker do
   context '#cookie_attempts_quantity' do
     it 'return "10" from @request.cookie["attempts_quantity"]' do
       request = racker.instance_variable_get(:@request)
-      allow(request).to receive(:cookies).and_return("attempts_quantity"=>"10")
+      allow(request).to receive(:cookies).and_return({"attempts_quantity"=>"10"})
       expect(racker.cookie_attempts_quantity).to eq "10"
     end
   end
@@ -210,12 +265,12 @@ describe Racker do
     before { @request = racker.instance_variable_get(:@request) }
 
     it 'return "" if @request.cookies["hint"] has "false"' do
-      allow(@request).to receive(:cookies).and_return("hint"=>"false")
+      allow(@request).to receive(:cookies).and_return({"hint"=>"false"})
       expect(racker.cookie_hint).to eq ""
     end
 
     it '@request.cookies["hint"] return "***2"' do
-      allow(@request).to receive(:cookies).and_return("hint"=>"***2")
+      allow(@request).to receive(:cookies).and_return({"hint"=>"***2"})
       expect(racker.cookie_hint).to eq "***2"
     end
   end
