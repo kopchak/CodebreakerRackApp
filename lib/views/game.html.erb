@@ -13,13 +13,15 @@
       <h2>Hint quantity: <%= game_session.hint_quantity %></h4>
       <h2>Hint: <%= cookie_hint %></h4>
       <h3><%= cookie_player_name %> please enter four digits between 1 to 6, format: 'xxxx' or click 'Get hint'</h4>
-      <form class="player_input" method="post" action="/attempt">
-        <input name="player_code" type="text" pattern="[1-6]{4}" autofocus required>
-        <input type="submit" value="Play">
-      </form >
-      <form class="hint" method="post" action="/hint">
-        <input name="get_hint" type="submit" value="Get hint">
-      </form>
+      <div class="wrap_form">
+        <form class="player_input" method="post" action="/attempt">
+          <input name="player_code" type="text" pattern="[1-6]{4}" autofocus required>
+          <input type="submit" value="Play">
+        </form >
+        <form class="hint" method="post" action="/hint">
+          <input name="get_hint" type="submit" value="Get hint">
+        </form>
+      </div>
       <% @request.session[:result].each do |key,value| %>
         <h3 class="result"><%= value %></h3>
         <h3 class="input"><%= key %></h3>

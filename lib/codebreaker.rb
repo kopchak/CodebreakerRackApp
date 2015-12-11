@@ -67,8 +67,12 @@ class Racker
 
   def hint
     Rack::Response.new do |response|
-      response.set_cookie("hint", game_session.check_hint)
-      response.redirect("/game")
+      if hint = game_session.check_hint
+        response.set_cookie("hint", hint)
+        response.redirect("/game")
+      else
+        response.redirect("/game")
+      end
     end
   end
 
@@ -116,11 +120,7 @@ class Racker
   end
 
   def cookie_hint
-    if @request.cookies["hint"] == 'false'
-      ""
-    else
-      @request.cookies["hint"]
-    end
+    @request.cookies["hint"]
   end
 
   def game_session

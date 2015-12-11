@@ -3,71 +3,76 @@ body {
 }
 
 h3 {
-  margin: 6px 0 19px 220px;
-}
-
-input {
-  margin: 0 0 0 127px;
-}
-
-form {
-  float: left;
+  text-align: center;
 }
 
 #win {
   width: 30%;
   margin: 0 auto;
   background-color: #FFF;
-  padding: 30px 40px;
+  padding: 30px 0px;
   border: solid 1px black;
   margin-top: 145px;
-  display: table;
 }
 
 #hall_of_fame {
-  width: 30%;
   margin: 0 auto;
   background-color: #FFF;
-  padding: 30px 40px;
+  padding: 30px 0px;
   border: solid 1px black;
   margin-top: 50px;
-  display: table;
 }
 
-.line {
-  margin: 5px 0 0px 120px;
+.wrap_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.new_game {
+  margin: 0 30px 0 0;
+}
+
+.name, .attempt, .secret {
   float: left;
+  border-bottom: black 1px solid;
 }
 
 .name {
-  float: left;
+  width: 45px;
   margin: 0 0 10px 110px;
-  border-bottom: black 1px solid;
 }
 
 .attempt {
-  float: left;
-  margin: 0 0 12px 61px;
-  border-bottom: black 1px solid;
+  width: 103px;
+  margin: 0 0 10px 61px;
 }
 
 .secret {
-  margin: 0 96px 12px 60px;
-  border-bottom: black 1px solid;
+  width: 84px;
+  margin: 0 96px 10px 60px;
+}
+
+.player_name, .attempts_count, .secret_code {
   float: left;
+  width: 67px;
+  text-align: center;
 }
 
 .player_name {
-  float: left;
-  margin: 0 0 5px 115px;
+  margin: 0 0 5px 99px;
 }
 
 .attempts_count {
-  float: left;
-  margin: 0 0 5px 126px;
+  margin: 0 0 5px 69px;
 }
 
 .secret_code {
-  float: left;
-  margin: 0 0 5px 124px;
+  margin: 0 0 5px 87px;
+}
+
+.title {
+  padding: 6px 20px 22px 0;
+  font-size: 20px;
 }

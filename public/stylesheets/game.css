@@ -14,9 +14,8 @@ body {
 }
 
 .player_input {
-  float: left;
-  margin-right: 4px;
-  margin-left: 130px;
+  display: inline;
+  margin: 0 3px 0 0;
 }
 
 .result {
@@ -32,9 +31,16 @@ body {
 }
 
 .hint {
-  margin-bottom: 10px;
+  display: inline;
 }
 
 .start_new_game {
   float: right;
+}
+
+.wrap_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
 }

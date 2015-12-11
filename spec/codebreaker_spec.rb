@@ -168,8 +168,9 @@ describe Racker do
     end
 
     it 'redirect to "/game"' do
+      allow(racker.game_session).to receive(:check_hint).and_return(false)
       action = racker.hint
-      expect(action.location).to eq '/game'
+      expect(action.location).to eq "/game"
     end
   end
 
@@ -263,11 +264,6 @@ describe Racker do
 
   context '#cookie_hint' do
     before { @request = racker.instance_variable_get(:@request) }
-
-    it 'return "" if @request.cookies["hint"] has "false"' do
-      allow(@request).to receive(:cookies).and_return({"hint"=>"false"})
-      expect(racker.cookie_hint).to eq ""
-    end
 
     it '@request.cookies["hint"] return "***2"' do
       allow(@request).to receive(:cookies).and_return({"hint"=>"***2"})

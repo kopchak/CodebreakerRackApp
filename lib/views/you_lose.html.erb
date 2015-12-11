@@ -7,12 +7,14 @@
   <body>
     <div id="lose">
       <h3><%= cookie_player_name %> you lose, secret code: <%= game_session.instance_variable_get(:@secret_arr).join %></h3>
-      <form method="post" action="/">
-        <input name="play_again" type="submit" value="New game">
-      </form>
-      <form method="post" action="/start_game">
-        <input name="play_again" type="submit" value="Play again">
-      </form>
+      <div class="wrap_form">
+        <form class="new_game" method="post" action="/">
+          <input type="submit" value="New game">
+        </form>
+        <form method="post" action="/start_game">
+          <input type="submit" value="Play again">
+        </form>
+      </div>
     </div>
   </body>
 </html>

@@ -3,11 +3,11 @@ body {
 }
 
 h1 {
-  margin-left: 29px;
+  text-align: center;
 }
 
 p {
-  float: left;
+  text-align: center;
 }
 
 #welcome {
@@ -20,13 +20,21 @@ p {
 }
 
 .start_game {
-  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .player_name {
-  margin-left: 10px;
+  margin-left: 5px;
+  width: 24%;
 }
 
 .attempts_quantity {
-  width: 20px;
+  width: 6%;
+  margin: 0 5px;
+}
+
+.label_quantity {
+  margin: 0 0 0 15px;
 }

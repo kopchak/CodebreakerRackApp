@@ -7,23 +7,29 @@
   <body>
     <div id="win">
       <h3><%= cookie_player_name %> you win!</h3>
-      <form method="post" action="/">
-        <input name="play_again" type="submit" value="New game">
-      </form>
-      <form method="post" action="/start_game">
-        <input name="play_again" type="submit" value="Play again">
-      </form>
+      <div class="wrap_form">
+        <form class="new_game" method="post" action="/">
+          <input type="submit" value="New game">
+        </form>
+        <form method="post" action="/start_game">
+          <input type="submit" value="Play again">
+        </form>
+      </div>
     </div>
-    <div id="hall_of_fame">
-      <h3>Hall of fame</h3>
-      <p class="name">Name:</p>
-      <p class="attempt">Attempt spent:</p>
-      <p class="secret">Secret code:</p>
+    <table id="hall_of_fame">
+      <th class="title">Hall of fame</th>
+      <tr>
+        <th class="name">Name:</th>
+        <th class="attempt">Attempt spent:</th>
+        <th class="secret">Secret code:</th>
+      </tr>
       <% @hall_of_fame.each do |hash| %>
-        <p class="player_name"><%= hash[:name] %></p>
-        <p class="attempts_count"><%= hash[:attempts_count] %></p>
-        <p class="secret_code"><%= hash[:secret_code] %></p>
+        <tr>
+          <td class="player_name"><%= hash[:name] %></td>
+          <td class="attempts_count"><%= hash[:attempts_count] %></td>
+          <td class="secret_code"><%= hash[:secret_code] %></td>
+        </tr>
       <% end %>
-    </div>
+    </table>
   </body>
 </html>
